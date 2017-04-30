@@ -24,7 +24,7 @@ export default class SingleArtist extends React.Component {
 					<div> {this.state.artist.followers.total} </div>
 					<h1> {this.state.artist.name} </h1>
 					<h2> Top Tracks</h2>
-					<TracksList tracks={this.state.topTracks.tracks}/>
+					<TracksList tracks={this.state.topTracks.tracks} playTrack={this.props.playTrack}/>
 				</div>
 				</div>
 			)
