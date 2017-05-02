@@ -22,11 +22,14 @@ export default class Player extends React.Component{
 		return(
 			<div>
 				<div className="player">
-					<h5>{this.props.current.name}</h5>
-					<div>
+					<div className="track-info">
+						<h5>{this.props.current.name}</h5>					
+						<h5>{this.props.current.artists[0].name}</h5>
 					</div>
-					<button onClick={this.togglePlay}>{this.state.playing ? "pause" : "play"} </button>
-					<button onClick={this.props.nextTrack}> NEXT </button>
+					<div className="track-controls">
+						<button onClick={this.togglePlay}>{this.state.playing ? "pause" : "play"} </button>
+						<button onClick={this.props.nextTrack}> NEXT </button>
+					</div>
 					<ReactPlayer  onProgress={this.handleProgress} url={this.props.current.preview_url} hidden playing ={this.state.playing}/>
 				</div>
 			</div>

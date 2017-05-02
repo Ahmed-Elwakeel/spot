@@ -1,8 +1,10 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+html, body, #root, .all{
+  height: 100%;
+}
+
+.all{
   background-color: #191919;
+  overflow-y: auto;
 }
 .logo{
   margin-top: 40px;
@@ -11,15 +13,20 @@ body {
   width: 75%;
   height: auto;
 }
+
 .mainBody{
+
   float:left;
-	background-color: #191919;
-  margin-left: 200px;
-  /*width:90%;*/
+  margin-left: 10%;
   padding-bottom: 100px;
-  padding: 1%;
+  padding: 0%;
   height: 100%;
+  width: 90%;
 }
+.mainBody__content{
+  width: 100%;
+}
+
 
 .home h1{
   color: white;
@@ -27,6 +34,8 @@ body {
   width: 90%;
   margin-left: 15px;
   margin-bottom: 35px;
+  padding:30px;
+  padding-bottom: 0;
 }
 
 .artists_list a{
@@ -35,7 +44,7 @@ body {
   font-size: 17px;
   text-decoration: none;
 
-}
+} 
 .artists_list a:hover{
   color: white;
 }
@@ -72,17 +81,19 @@ body {
 	font-size: 15px;
 	text-align: center;
 	display: inline-block;
+  padding:30px;
+  padding-top: 0;
  }
 
- .sideMenu{
+.sideMenu{
   position: fixed;
   margin:0; 
   list-style: none;
-  width: 200px;
+  width: 10%;
   float: left;
   height: 100%;
   text-align: center;
-  background: linear-gradient(0deg,rgba(0,0,0,.9),rgba(0,0,0,1));
+  background: linear-gradient(0deg,rgba(0,0,0,.1),rgba(0,0,0,1));
 }
 
 .sideMenu a {
@@ -92,12 +103,99 @@ body {
   clear: left;
   font-size: 20px;
   font-weight: bold;
+
 }
 
 .sideMenu a:hover{
   color: white
 }
 .menuContainer{
+  margin-top:50px;
+}
+.userName{
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+}
+
+.single-aritst{
+  height: 100%;
+  width: 100%;
+}
+.single-artist__img{
+ 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 25%;
+  padding-top: 35%;
+  position: relative;
+
+}
+.single-artist__img:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(0deg,#191919,transparent);
+}
+.info{
+  z-index: 1;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-left: 30px;
+  margin-bottom: 10px;
+}
+
+.info p , .info a{
+  color: white;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+.info h1{
+  font-weight: bold;
+  font-size: 60px;
+  font-family: Geneva;
+}
+button:focus {outline:0;}
+
+.info button{
+  width: 110px;
+  text-transform: uppercase;
+  border-radius: 30px;
+  margin-right: 10px;
+}
+.info a{
+  z-index: 10;
+}
+.info a:hover{
+  color: white;
+}
+.info .b2:hover{
+
+  background-color: #131313;
+}
+.info .b1:hover{
+  border:none;
+  background-color: #219042;
+}
+.info .b1{
+  background-color: #2EBD59;
+}
+.info .b2{
+  border: 1px white solid;
+  background:rgba(1,1,1,0);
+}
+.single-aritst__container{
+  color: white;
+}
+.single-aritst__container h2{
+  font-weight: bold;
+  margin-left: 50px;
   margin-top:50px;
 }
 .player{
@@ -109,3 +207,61 @@ body {
   background-color: #252525;
 }
 
+.track-list{
+  list-style: none;
+  padding:30px;
+}
+.track-list li{
+  width: 100%;
+  cursor: pointer;
+}
+.track-list  li:hover{
+  background-color: rgba(1,1,1,0.3);
+}
+
+
+.table{
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.tableCell{
+  display: table-cell;
+  /*border: 1px dotted red;*/
+  padding: 10px;
+  margin-bottom: 0;
+}
+.tableCell:nth-child(1){
+  width: 10%;
+}
+.tableCell:nth-child(3){
+  text-align: center;
+}
+.greenActive{
+  background-color: green;
+}
+
+.serach h1{
+  color: white;
+  padding: 30px;
+  padding-bottom: 0px;
+  font-weight: bold;
+}
+input[type=text]{
+  width: 300px;
+  border-radius: 30px;
+  margin-left: 30px;
+  border:black;
+}
+input[type=text]::placeholder{
+  color: rgba(0,0,0,0.7);
+}
+
+
+.track-info{
+  float: left;
+}
+.track-controls{
+  float: center;
+}

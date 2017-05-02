@@ -23,17 +23,26 @@ class App extends React.Component {
   nextTrack(){
     this.setState({currentIndex: this.state.currentIndex+1});
   }
+  isActive(index){
+    
+    if(this.state==undefined || this.state.currentIndex == null)
+      return false;
+    return ((index===this.state.currentIndex) ? true:false);
+  }
+
   render() {
     return (
       <BrowserRouter>
-        <div >
+        <div className="all">
           <Player nextTrack={this.nextTrack} current={this.state.queue[this.state.currentIndex]}/>
-          <Menu className="menu"/>
+          <Menu />
           <div className="mainBody">
-          <Route exact path="/" component={Home} />
-          <Route path="/artists" component={SearchArtists} />
-          <Route path="/artist/:id" 
-          render={(routeProps) => <SingleArtist  playTrack={this.playTrack} {...routeProps}/>}/>
+            <div>
+              <Route exact path="/" component={Home} />
+              <Route path="/artists" component={SearchArtists} />
+              <Route path="/artist/:id" 
+              render={(routeProps) => <SingleArtist  playTrack={this.playTrack} isActive={this.isActive}{...routeProps}/>}/>
+            </div>
           </div>
         </div>
       </BrowserRouter>
@@ -42,18 +51,20 @@ class App extends React.Component {
 }
 
 export default App;
+var FontAwesome = require('react-fontawesome');
 
 function Menu(props) {
+  
 
+ 
   return(
-      <div>
         <ul className="sideMenu">
           <img className="logo" src={require('./images/logo.png')} />
-          <div className="menuContainer">
+          <div className="menuContainer row">
             <li><Link to="/" activeClassName="activeLink">Home</Link></li>
             <li><Link to="/artists" activeClassName="activeLink">Artists</Link></li>
+            <a className="userName">User name</a>     
           </div>
         </ul>
-      </div>
     )
 }

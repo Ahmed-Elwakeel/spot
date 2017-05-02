@@ -3,16 +3,20 @@ import {Link} from 'react-router-dom';
 
 function TracksList(props) {
 
-	console.log(props.tracks)
-	console.log("helo")
+	console.log(props.isActive.bind(this,0).value);
 	const tracks = props.tracks;
 	if(props.tracks !== undefined )
 	  return(
-	      <ul>
+	      <ul className="track-list">
 	       {props.tracks.map((track, i) => {
 	       			return(
-			       			<li key={i} onClick={() => props.playTrack(tracks,i)}>
-				       			<div> {i+1} {track.name} {track.duration_ms}</div>
+
+			       			<li className={props.isActive.bind(this,i) ? '' : ''} key={i} onClick={() => props.playTrack(tracks,i)}>
+				       			<div className="table">
+				       				<div className="tableCell">{i+1}.</div>
+				       				<div className="tableCell">{track.name}</div> 
+				       				<div className="tableCell">{track.duration_ms}</div>
+				       			</div>
 			       			</li>
 		       			)
 		       		}

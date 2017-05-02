@@ -21,10 +21,10 @@ export default class SearchArtists extends React.Component {
 	}
 	render() {
 		return(
-			<div>
+			<div className="serach">
 				<h1> Search for artists </h1>
-				<form onSubmit={this.searchArtist}>
-					<input ref="keyword" type="text"/>
+				<form className="searchForm" onSubmit={this.searchArtist}>
+					<input className="searchInput"  ref="keyword" type="text" placeholder="Search... "/>
 				</form>
 				<ArtistsList artists={this.state.artists} />
 

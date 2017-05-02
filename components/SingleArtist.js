@@ -18,14 +18,20 @@ export default class SingleArtist extends React.Component {
 			const image = this.state.artist.images.length? this.state.artist.images[0].url : "";
 
 			return(
-				<div>
-				<div> <img src={image}/></div>
-				<div>
-					<div> {this.state.artist.followers.total} </div>
-					<h1> {this.state.artist.name} </h1>
-					<h2> Top Tracks</h2>
-					<TracksList tracks={this.state.topTracks.tracks} playTrack={this.props.playTrack}/>
-				</div>
+				<div >
+					<div className="single-artist__img" style={{backgroundImage: `url(${image})`}}>
+						<div className="info">
+							<p> {this.state.artist.followers.total} Followers </p>
+							<h1> {this.state.artist.name} </h1>
+							<button className="button b1"><a>Follow </a></button>
+							<button className="button b2">Play All </button>
+						</div>
+					</div>
+					<div className="single-aritst__container">
+						
+						<h2> Top Tracks</h2>
+						<TracksList tracks={this.state.topTracks.tracks} playTrack={this.props.playTrack} isActive={this.props.isActive}/>
+					</div>
 				</div>
 			)
 		}else
