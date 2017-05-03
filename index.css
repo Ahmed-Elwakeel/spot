@@ -22,6 +22,7 @@ html, body, #root, .all{
   padding: 0%;
   height: 100%;
   width: 90%;
+
 }
 .mainBody__content{
   width: 100%;
@@ -73,7 +74,7 @@ html, body, #root, .all{
 .artist_img:hover{
   background-color: #131313;
   opacity:0.5;
-  z-index: 100;
+  z-index: 2;
 }
 .artists_list{
   margin: 0;
@@ -83,9 +84,12 @@ html, body, #root, .all{
 	display: inline-block;
   padding:30px;
   padding-top: 0;
+  padding-bottom: 80px;
+
  }
 
 .sideMenu{
+  z-index: 2;
   position: fixed;
   margin:0; 
   list-style: none;
@@ -103,6 +107,7 @@ html, body, #root, .all{
   clear: left;
   font-size: 20px;
   font-weight: bold;
+  z-index: 2;
 
 }
 
@@ -201,15 +206,18 @@ button:focus {outline:0;}
 .player{
   position: fixed;
   bottom: 0;
-  z-index: 1;
-  height: 70px;
+  z-index: 3;
+  height: 80px;
   width: 100%;
   background-color: #252525;
 }
 
+
+
 .track-list{
   list-style: none;
   padding:30px;
+  padding-bottom: 80px;
 }
 .track-list li{
   width: 100%;
@@ -233,9 +241,11 @@ button:focus {outline:0;}
   margin-bottom: 0;
 }
 .tableCell:nth-child(1){
+  color: gray;
   width: 10%;
 }
 .tableCell:nth-child(3){
+  color: gray;
   text-align: center;
 }
 .greenActive{
@@ -257,11 +267,70 @@ input[type=text]{
 input[type=text]::placeholder{
   color: rgba(0,0,0,0.7);
 }
+.track-controls{
+  margin: 0 auto;
+  padding:10px;
+  text-align: center;
+  width: 50%;
 
+  font-size: 20px;
+}
 
 .track-info{
+  padding:10px;
+  padding-left: 30px;
+  width: 30%;
   float: left;
+  color: white;
 }
-.track-controls{
-  float: center;
+.track-info h5{
+  font-size: 16px;
+}
+.track-controls button{
+
+  margin-bottom: 15px;
+  color: white;
+}
+.progress-bar{
+  border-radius: 15px;
+  background-color: green;
+  height: 5px;
+}
+.bar{
+  border-radius: 15px;
+  background-color: gray;
+  height: 5px;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.loaded{
+  font-size: 15px;
+  float: right;
+  margin-top: 15px;
+  color: white;
+}
+.played{
+  font-size: 15px;
+  float:left;
+  margin-top: 15px;
+  color: white;
+
+}
+.track-control-container{
+  height: 70px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.albumImage{
+  float: left;
+  height: 50px;
+  width: 50px;
+  margin-right:10px;
+  background-color: #303030;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
