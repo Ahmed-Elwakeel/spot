@@ -16,28 +16,35 @@ export default class Player extends React.Component{
 		this.setState({playing: !this.state.playing});
 	}
 	handleProgress(played){
-		if(played.loadedSeconds != undefined){
+		if(played.loadedSeconds !== undefined){
 			var loadedparse =  Math.floor(played.loadedSeconds)
 			this.setState({loadedSeconds: loadedparse});
 		}
 		var parse = Math.ceil(played.playedSeconds)
-		var perc = (parse / this.state.loadedSeconds)*100 || 0;
+		var perc = (parse / this.state.loadedSeconds)*100;
+		
 		this.setState({perc: perc , playedSeconds: parse});
-		console.log(played);
 	}
 	render(){
-			var playedseconds = 0;
+	
+		var FontAwesome = require('react-fontawesome');
 
-		if(this.props.current == undefined){
+
+		if(this.props.current === undefined){
 			return null;
 		}
-				console.log(this.props.current.album.images[2])
-
+		var image = "";
+		if(this.props.albumImage === "")
+			image = this.props.current.album.images[2].url;
+		else
+			image = this.props.albumImage;
 		return(
+				
 			<div>
 				<div className="player">
+
 					<div className="track-info">
-						<div className="albumImage" style={{backgroundImage: `url(${this.props.current.album.images[2].url})`}}> </div>
+						<div className="albumImage" style={{backgroundImage: `url(${image})`}}> </div>
 						<h5>{this.props.current.name}</h5>					
 						<h5>{this.props.current.artists[0].name}</h5>
 					</div>
@@ -47,8 +54,10 @@ export default class Player extends React.Component{
 							<div className="played">{this.state.playedSeconds}</div>
 						
 							<div className="loaded">{this.state.loadedSeconds}</div>
-							<button onClick={this.togglePlay}>{this.state.playing ? "pause" : "play"} </button>
-							<button onClick={this.props.nextTrack}> NEXT </button>
+						
+							<button onClick={this.props.nextTrack}> <FontAwesome name='step-backward'/> </button>
+							<button style={{marginLeft:'100px', marginRight:'100px'}} onClick={this.togglePlay}>{this.state.playing ? <FontAwesome name='pause'/> : <FontAwesome name='play'/>} </button>
+							<button onClick={this.props.nextTrack}> <FontAwesome name='step-forward'/> </button>
 							
 							<div className="bar" > 
 								<div className="progress-bar" style={{width:`${this.state.perc}%`}}></div>
@@ -56,7 +65,7 @@ export default class Player extends React.Component{
 						 
 						</div>
 					</div>
-					<ReactPlayer onProgress={this.handleProgress} url={this.props.current.preview_url} hidden playing ={this.state.playing}/>
+					<ReactPlayer onProgress={this.handleProgress} url={this.props.current.preview_url} hidden playing={this.state.playing}/>
 				</div>
 			</div>
 		)

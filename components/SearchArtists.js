@@ -17,7 +17,6 @@ export default class SearchArtists extends React.Component {
 		axios.get(`https://api.spotify.com/v1/search?type=artist&q=${keyword}`).then(response => {
 		 	this.setState({artists: response.data.artists.items});
 	    });
-		console.log(this.state.artists)
 	}
 	render() {
 		return(

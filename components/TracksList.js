@@ -1,9 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 function TracksList(props) {
 
-	console.log(props.isActive.bind(this,0).value);
 	const tracks = props.tracks;
 	if(props.tracks !== undefined )
 	  return(
@@ -11,7 +9,7 @@ function TracksList(props) {
 	       {props.tracks.map((track, i) => {
 	       			return(
 
-			       			<li className={props.isActive.bind(this,i) ? '' : ''} key={i} onClick={() => props.playTrack(tracks,i)}>
+			       			<li className={props.isActive(tracks[i].id) ? 'greenActive' : ''} key={i} onClick={() => props.playTrack(tracks,i,tracks[i].id, props.albumImage)}>
 				       			<div className="table">
 				       				<div className="tableCell">{i+1}.</div>
 				       				<div className="tableCell">{track.name}</div> 

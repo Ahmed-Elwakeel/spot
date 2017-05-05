@@ -101,26 +101,30 @@ html, body, #root, .all{
 }
 
 .sideMenu a {
-  color: #9B9B9B;
+  transition: opacity .3s;
+  color:white;
+  opacity: 0.5;
+  text-decoration: inherit; /* no underline */
   margin-left: 30px;
   float: left;
   clear: left;
-  font-size: 20px;
   font-weight: bold;
   z-index: 2;
-
 }
 
 .sideMenu a:hover{
-  color: white
+  opacity: 1;
+  color: white;
 }
+.sideMenu a:focus{outline: none;color:white;}
+
 .menuContainer{
   margin-top:50px;
 }
 .userName{
   position: absolute;
   bottom: 30px;
-  left: 0;
+  left: 15%;
 }
 
 .single-aritst{
@@ -215,6 +219,7 @@ button:focus {outline:0;}
 
 
 .track-list{
+  color: white;
   list-style: none;
   padding:30px;
   padding-bottom: 80px;
@@ -241,16 +246,16 @@ button:focus {outline:0;}
   margin-bottom: 0;
 }
 .tableCell:nth-child(1){
-  color: gray;
+  /*color: gray;*/
+  opacity: 0.5;
   width: 10%;
 }
 .tableCell:nth-child(3){
-  color: gray;
-  text-align: center;
+  /*color: gray;*/
+  opacity: 0.5;
+  width: 15%;
 }
-.greenActive{
-  background-color: green;
-}
+
 
 .serach h1{
   color: white;
@@ -286,11 +291,13 @@ input[type=text]::placeholder{
 .track-info h5{
   font-size: 16px;
 }
-.track-controls button{
 
+.track-controls button{
+  cursor: pointer;
   margin-bottom: 15px;
   color: white;
 }
+
 .progress-bar{
   border-radius: 15px;
   background-color: green;
@@ -333,4 +340,85 @@ input[type=text]::placeholder{
   background-position: 50% 50%;
   background-repeat:   no-repeat;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.greenActive{
+  color: green;
+}
+
+.activeLink{
+   color: white;
+}
+
+.single-album__info{
+  float: left;
+  margin: 40px 10px 10px 30px;
+  width: 300px;
+  height: auto;
+  text-align: center;
+  color: white;
+}
+
+.single-album__img{
+
+  width: 100%;
+  max-height: 400px;
+  padding-top: 100%;
+  background-color: #303030;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.single-album__container{
+  float: left;
+  width: 70%;
+  height: auto;
+}
+
+.single-album__container .track-list{
+  padding-left: 0;
+}
+.single-album__name{
+  font-size:26px;
+  font-weight: bold;
+}
+
+.single-album__artist{
+  opacity: 0.5;
+  font-size:20px;
+}
+.single-album__info .button{
+  background-color: #2EBD59;
+  width: 180px;
+  text-transform: uppercase;
+  border-radius: 30px;
+  margin-right: 10px;
+  margin-top: 10px;
+
+ 
+}
+.single-album__info .button:hover{
+  border:none;
+  background-color: #219042;
+
+}
+
+.single-album__info a{
+  color: white;
+  text-decoration: none;
+}
+.single-album__info a:hover{
+  color: white;
+}
+
+
+.aritst__albums{
+  background-color:  rgba(0,0,0,.3);
+  border-radius: 0.5px solid  rgba(0,0,0,.3);
+}
+.aritst__albums h2{
+  color: white;
+  margin-left: 
 }

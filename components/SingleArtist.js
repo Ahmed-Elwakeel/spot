@@ -1,13 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import TracksList from './TracksList';
-
+import AlbumsList from './AlbumsList';
 export default class SingleArtist extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			artist: {},
-			topTracks: []
+			topTracks: [],
+			albums:[]
 		}
 	}
 
@@ -30,7 +31,11 @@ export default class SingleArtist extends React.Component {
 					<div className="single-aritst__container">
 						
 						<h2> Top Tracks</h2>
-						<TracksList tracks={this.state.topTracks.tracks} playTrack={this.props.playTrack} isActive={this.props.isActive}/>
+						<TracksList albumImage={""} tracks={this.state.topTracks.tracks} playTrack={this.props.playTrack} isActive={this.props.isActive}/>
+					</div>
+					<div className="aritst__albums">
+						<h2> Albums </h2>
+						<AlbumsList albums={this.state.albums} />
 					</div>
 				</div>
 			)
@@ -49,6 +54,12 @@ export default class SingleArtist extends React.Component {
 		axios.get(`https://api.spotify.com/v1/artists/${id}/top-tracks?country=SE`).then((
 			response) => {
 				this.setState({topTracks: response.data});
+				console.log(response + " aaaaaa ")
+		});
+		axios.get(`https://api.spotify.com/v1/artists/${id}/albums?country=SE`).then((
+			response) => {
+				this.setState({albums: response.data.items});
+				console.log(response)
 		});
 	}
 }
