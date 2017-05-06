@@ -5,7 +5,7 @@ function ArtistList(props) {
   return(
       <ul className="artists_list">
        {props.artists.map((artist, i) => {
-       			const image = artist.images.length? artist.images[1].url : "";
+       			const image = artist.images.length? artist.images[0].url : "";
        			
        			return(
 		       			<li key={i}>

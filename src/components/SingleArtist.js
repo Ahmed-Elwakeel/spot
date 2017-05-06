@@ -34,7 +34,7 @@ export default class SingleArtist extends React.Component {
 						<TracksList albumImage={""} tracks={this.state.topTracks.tracks} playTrack={this.props.playTrack} isActive={this.props.isActive}/>
 					</div>
 					<div className="aritst__albums">
-						<h2> Albums </h2>
+						<h2 style={{marginLeft:'30px'}}> Albums </h2>
 						<AlbumsList albums={this.state.albums} />
 					</div>
 				</div>
